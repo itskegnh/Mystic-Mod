@@ -16,11 +16,11 @@ body {
   border-radius: 10px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 50%;
+  /*padding-bottom: 50%;*/
 }
 
 .button {
-  background-color: #36393E;
+  background-color: rgba(50, 50, 50, 0.75);
   border: none;
   color: white;
   padding: 15px 32px;
