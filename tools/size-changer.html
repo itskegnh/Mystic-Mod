@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>level size changer</title>
+		<style>
+			.in {
+				display: inline;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<p id="codeIn" class = "out" contenteditable>Your V3 code here</p><br>
+			<br>
+		Add
+		<p id="top" class = "in" contenteditable>0</p> rows above,
+		<p id="bottom" class = "in" contenteditable>0</p> rows below,
+		<p id="left" class = "in" contenteditable>0</p> columns to the left, and
+		<p id="right" class = "in" contenteditable>0</p> columns to the right. <br>
+		<br>
+		set the name to
+		<p id="name" class = "in" contenteditable>New name</p>.<br><br>
+		The V3 code may be longer than normal, but that can be fixed by importing the code to cell machine and exporting it again.
+		<br><br><br>
+		<button onclick="update();">Generate new Code</button>
+		<br><br>
+		<p id="codeOut" class="out"></p>
+		</div>
+		<script>
+
+			var order = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!$%&+-.=?^{}";
+			function update(){
+				//collect and format data
+				var code = document.getElementById("codeIn").innerText.split(";");
+				var info = {
+					top:parseInt(document.getElementById("top").innerText),
+					bottom:parseInt(document.getElementById("bottom").innerText),
+					left:parseInt(document.getElementById("left").innerText),
+					right:parseInt(document.getElementById("right").innerText),
+					name:document.getElementById("name").innerText
+				};
+	
+				//pad sides
+				if(info.left+info.right) code[3] = expandedForm(code[3]).match(new RegExp(".{1,"+decFrom74(code[1])+"}", 'g')).join("{(0("+decTo74(info.left+info.right-1)+")");
+				
+				//pad bottom
+				if(info.bottom > 0) code[3] = "{(0("+decTo74((decFrom74(code[1])+info.left+info.right)*info.bottom+info.left-1)+")"+code[3];
+	
+				//update width and height
+				code[1] = decTo74(decFrom74(code[1])+info.left+info.right);
+				code[2] = decTo74(decFrom74(code[2])+info.top+info.bottom);
+	
+				//update name
+				code[4] = info.name;
+	
+				//output new code
+				document.getElementById("codeOut").innerText = code.join(";")
+			}
+			function expandedForm(level){
+				var expandedForm = "";
+				var copyOffset = 0;
+				var copyCount = 0;
+				var backtrack = 0;
+				for(var i = 0; i < level.length; i++){
+					if(level[i]==")"){
+						i++;
+						copyOffset = decFrom74(level[i]);
+						i++;
+						copyCount = decFrom74(level[i]);
+					}
+					else if(level[i]=="("){
+						i++;
+						copyOffset = "";
+						while(level[i]!=="("&&level[i]!==")"){
+							backtrack+=level[i];
+							i++;
+						}
+						copyOffset = decFrom74(copyOffset);
+						if(level[i]=="("){
+							i++;
+							var copyCount = "";
+							while(level[i]!==")"){
+								copyCount+=level[i];
+								i++;
+							}
+							i++;
+							copyCount = decFrom74(copyCount);
+						}else{
+							i++;
+							copyCount = decFrom74(level[i]);
+						}
+					}else{
+						expandedForm+=level[i];
+					}
+					for(;copyCount > 0; copyCount--){
+						expandedForm+=expandedForm[expandedForm.length-copyOffset-1];
+					}
+				}
+				return expandedForm;
+			}
+			function decFrom74(value){
+				var decimalValue = 0;
+				for(var digit of value){
+					decimalValue*=74;
+					decimalValue+=order.indexOf(digit);
+				}
+				return decimalValue;
+			}
+			function decTo74(value){
+				if(value==0)return "0";
+				var value74 = "";
+				for(var power = Math.floor(Math.log(value)/Math.log(74)); power > -1; power--){
+					value74+=order[Math.floor(value/Math.pow(74,power))];
+					value%=Math.pow(74,power);
+				}
+				return value74;
+			}
+		</script>
+		<style>
+			.main {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: medium;
+			}
+
+			p {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: medium;
+			}
+		
+			.in {
+				background-color: white;
+				border-color: darkgray;
+				border-radius: 10px;
+				border-style: solid;
+				border-width: 1.5px;
+				padding: 5px 10px 5px 10px;
+			}
+
+			body {
+				margin-top: 50px;
+				margin-left: 75px;
+				margin-right: 75px;
+			}
+
+			button {
+				background-color: white;
+				border-color: darkgray;
+				border-radius: 5px;
+				border-style: solid;
+				border-width: 1.5px;
+				padding: 5px 15px 5px 15px;
+				margin-right: 10px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: medium;
+			}
+
+			button:hover {
+				background-color: gainsboro;
+				border-color: dimgray;
+				border-radius: 5px;
+				border-style: solid;
+				border-width: 1.5px;
+				padding: 5px 15px 5px 15px;
+				margin-right: 10px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: medium;
+			}
+
+			.out {
+				font-family: Georgia, Times, 'Times New Roman', serif;
+				border-color: dimgray;
+				border-style: solid;
+				border-width: 1.5px;
+				border-radius: 2px;
+				display: block;
+				word-wrap: break-word;
+				padding: 15px 15px 15px 15px;
+			}
+
+		</style>
+	</body>
+</html>
