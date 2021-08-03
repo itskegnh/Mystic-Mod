@@ -1,0 +1,18 @@
+body {
+  background-image: url("https://img.itch.zone/aW1nLzY2MzA2MzcucG5n/original/CI6uUc.png");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.background {
+  background-color: rgba(10, 10, 10, 0.75);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin: 5% 15%;
+  border-radius: 10px;
+  padding-bottom: 50%;
+}
