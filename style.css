@@ -49,12 +49,8 @@ body {
 }
 
 .nav-link:hover {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 39px 16px;
-  text-decoration: none;
-  font-size: 17px;
+  background-color: #ddd;
+  color: black;
 }
 
 .nav-img {
