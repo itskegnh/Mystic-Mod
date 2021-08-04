@@ -13,7 +13,7 @@ function load() {
     admin = (!!localStorage.getItem("apples"));
   } else {
     admin = false;
-}
+}}
 
 load()
   
