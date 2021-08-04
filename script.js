@@ -9,8 +9,8 @@ function save() {
 }
 
 function load() {
-  if (!!localStorage.getItem("admin")) {
-    admin = (!!localStorage.getItem("admin"));
+  if (localStorage.getItem("admin") === "true") {
+    admin = true;
   } else {
     admin = false;
 }}
