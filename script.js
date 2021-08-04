@@ -2,7 +2,7 @@
 
 function tick() {save_load(); check_admin();}
 
-function check_admin() {if (admin) {document.getElementById("admin_panel").style.opacity = 1;}}
+function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";}}
 
 function save() {
   localStorage.setItem("admin", admin);
