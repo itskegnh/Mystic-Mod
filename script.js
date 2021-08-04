@@ -2,7 +2,7 @@
 
 function tick() {save(); check_admin();}
 
-function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";}}
+function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";} else {document.getElementById("admin_panel").style.visibility = "hidden";}}
 
 function save() {
   localStorage.setItem("admin", admin);
@@ -10,7 +10,7 @@ function save() {
 
 function load() {
   if (!!localStorage.getItem("admin")) {
-    admin = (!!localStorage.getItem("apples"));
+    admin = (!!localStorage.getItem("admin"));
   } else {
     admin = false;
 }}
