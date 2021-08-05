@@ -1,6 +1,6 @@
 // What are you looking at?
 
-function tick() {save(); check_admin();}
+function tick() {save(); check_admin(); check_bg()}
 
 function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";} else {document.getElementById("admin_panel").style.visibility = "hidden";}}
 
