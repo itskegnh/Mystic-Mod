@@ -1,5 +1,7 @@
 // What are you looking at?
 
+function set_theme() {theme = prompt("What Theme?");}
+
 function tick() {save(); check_admin(); check_bg()}
 
 function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";} else {document.getElementById("admin_panel").style.visibility = "hidden";}}
