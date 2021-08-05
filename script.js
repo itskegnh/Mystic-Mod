@@ -18,12 +18,12 @@ function load() {
   if (localStorage.getItem("admin") === "true") {
     admin = true;
   } else {
-    admin = false;
+    admin = false;}
   if (!!localStorage.getItem("theme")) {
     theme = localStorage.getItem("theme");
   } else {
-    theme = "default";
-}}
+    theme = "default";}
+ }
 
 load()
   
