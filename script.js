@@ -6,6 +6,7 @@ function check_admin() {if (admin) {document.getElementById("admin_panel").style
 
 function save() {
   localStorage.setItem("admin", admin);
+  localStorage.setItem("theme", theme);
 }
 
 function check_bg() {
