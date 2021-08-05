@@ -1,5 +1,6 @@
 body {
   background-image: radial-gradient(#e66465, #9198e5);; /*url("https://img.itch.zone/aW1nLzY2MzA2MzcucG5n/original/CI6uUc.png");*/
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
