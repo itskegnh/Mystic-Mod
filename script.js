@@ -6,6 +6,8 @@ function tick() {save(); check_admin(); check_bg()}
 
 function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";} else {document.getElementById("admin_panel").style.visibility = "hidden";}}
 
+function rickroll() {window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";}
+
 function save() {
   localStorage.setItem("admin", admin);
   localStorage.setItem("theme", theme);
