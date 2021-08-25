@@ -6,7 +6,7 @@ function tick() {save(); check_admin(); check_bg()}
 
 function check_admin() {if (admin) {document.getElementById("admin_panel").style.visibility = "visible";} else {document.getElementById("admin_panel").style.visibility = "hidden";}}
 
-function rickroll() {window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";}
+function rickroll() {window.location.href = "https://cdn.discordapp.com/attachments/865552215145578516/880230581860958288/4.2.3.0_Mystic_Mod.zip";}
 
 function save() {
   localStorage.setItem("admin", admin);
