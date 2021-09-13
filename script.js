@@ -18,6 +18,7 @@ function check_bg() {
   else if (!theme) {document.body.style.backgroundImage = "url('https://img.itch.zone/aW1nLzY2MzA2MzcucG5n/original/CI6uUc.png')";}
   else if (theme === "rainbow") {document.body.style.backgroundImage = "linear-gradient(to right, orange , yellow, green, cyan, blue, violet)";}
   else if (theme === "dark") {document.body.style.backgroundImage = "url('https://media.discordapp.net/attachments/791818284370231318/872692442040774707/unknown.png')";}
+  else if (theme === "crab") {document.body.style.backgroundImage = "url('https://pbs.twimg.com/media/EMQ6ZJEWsAIyDmw?format=jpg&name=small')";}
   else {document.body.style.backgroundImage = "url('https://media.tenor.com/images/52c80bffe2f2675700e4397d25071ae3/tenor.gif')";}
 }
 
