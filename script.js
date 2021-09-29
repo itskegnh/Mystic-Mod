@@ -8,6 +8,8 @@ function check_admin() {if (admin) {document.getElementById("admin_panel").style
 
 function rickroll() {window.location.href = "https://cdn.discordapp.com/attachments/865552215145578516/880230581860958288/4.2.3.0_Mystic_Mod.zip";}
 
+function fyg() {window.location.href = "https://discord.gg/myN9Vu38Zp";}
+
 function save() {
   localStorage.setItem("admin", admin);
   localStorage.setItem("theme", theme);
